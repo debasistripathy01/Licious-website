@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>eggs</title>
+    <link rel="stylesheet" href="./common.css" />
+    <link rel="stylesheet" href="../Components/Common.css" />
+    <link rel="stylesheet" href="../NavbarFooter/Styles/footer.css" />
+    <script
+      src="https://kit.fontawesome.com/afc5c86662.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="shortcut icon" href="https://www.licious.in/favicon_old.ico" />
+  </head>
+  <body>
+    <div id="navbar"></div>
+    <div id="only-for-space"></div>
+    <div class="refermain">
+      <p id="refhome"><a href="../index.html" class="atultoday">Home&nbsp;&nbsp;&nbsp;</a></p>
+      <p><i class="fa-solid fa-caret-right"></i></p>
+      <p id="chickenHead">&nbsp;&nbsp;&nbsp;<span style="color: #D11243;">Egg</span></p>
+    </div>
+    <!-- <div class="bar1"><hr /></div> -->
+    <div class="head">
+      <h2>Egg &nbsp;&nbsp;<i class="fa-solid fa-caret-right"></i></h2>
+    </div>  
+    <div id="potContainer">
+    <div class="images">
+      <p>
+        <img src="	https://d2407na1z3fc0t.cloudfront.net/USP/usp_591014f08301c" alt="">
+        <div id="nameimage"><span>Naturally laid, not cultured  &nbsp;</span></div>
+      </p>
+    </div>
+    <div class="images1">
+      <p>
+        <img src="https://d2407na1z3fc0t.cloudfront.net/USP/usp_5910153e779fb" alt="">
+        <div id="nameimage1"><span> &nbsp; &nbsp; Rich, full-bodied flavour &nbsp;</span></div>
+      </p>
+    </div>
+  </div> 
+    <div class="bar"><hr /></div><br>
+    <div id="filter"></div>
+    <div id="seperationpart"></div>
+      <div class="bar2"><hr /></div><br>
+    <div id="container"></div>
+    <div id="footer"></div>
+  </body>
+</html>
+<script>
+  let getData = async () => {
+    let res = await fetch("https://safe-eyrie-39519.herokuapp.com/licious/egg");
+    let data = await res.json();
+    _eggdata(data);
+  };
+  getData();
+  let sortLTH = async () => {
+  let res = await fetch(
+    "https://safe-eyrie-39519.herokuapp.com/licious/chicken?_sort=price&_order=asc"
+  );
+  let data = await res.json();
+    console.log(data);
+  // append(data);
+  _eggdata(data)
+};
+let sortHTL = async () => {
+  let res = await fetch(
+    "https://safe-eyrie-39519.herokuapp.com/licious/chicken?_sort=price&_order=desc"
+  );
+  let data = await res.json();
+  console.log(data);
+  // append(data);
+  _eggdata(data)
+};
+let sortNAME = async () => {
+  let res = await fetch(
+    `https://safe-eyrie-39519.herokuapp.com/licious/chicken/?_sort=name&_order=asc`
+  );
+  let data = await res.json();
+  // console.log(res);
+  _eggdata(data)
+  
+};
+  
+  function _eggdata(eggdata) {
+    let newCinata = document.querySelector("#container");
+    newCinata.innerHTML =null;
+    eggdata.map(function (elem) {
+      var main = document.createElement("div");
+      main.setAttribute("class", "main");
+      var img = document.createElement("img");
+      img.setAttribute("src", elem.imgUrl[0]);
+      img.setAttribute("class", "image");
+
+      var name = document.createElement("h4");
+      name.innerText = elem.name;
+      var des = document.createElement("p");
+      des.setAttribute("class", "des");
+      des.innerText = elem.des;
+      var wgt = document.createElement("div");
+      wgt.setAttribute("class", "wgt");
+      var net_tag = document.createElement("h6");
+      net_tag.innerText = elem.net_tag;
+
+      var net = document.createElement("h6");
+      net.innerText = elem.net;
+      var n_gm = document.createElement("h6");
+      n_gm.innerText = elem.unit;
+
+      var gross_tag = document.createElement("h6");
+      gross_tag.innerText = elem.gross_tag;
+      var gross = document.createElement("h6");
+      gross.innerText = elem.gross;
+      var g_gm = document.createElement("h6");
+      g_gm.innerText = elem.unit;
+
+      var hold = document.createElement("div");
+      hold.setAttribute("class", "hold");
+
+      var pri = document.createElement("div");
+      pri.setAttribute("class", "pri");
+      var price_tag = document.createElement("h5");
+      price_tag.innerText = elem.price_tag;
+      var currency = document.createElement("h5");
+      currency.innerText = elem.currency;
+      var price = document.createElement("h5");
+      price.innerText = elem.price;
+      var strikePrice = document.createElement("strike");
+      strikePrice.innerText = `₹${elem.strikePrice}`;
+      var btndiv = document.createElement("div");
+      btndiv.setAttribute("class", "btndiv");
+      var addCart = document.createElement("button");
+      addCart.setAttribute("class", "addcartbtn");
+      addCart.innerHTML = "Add to Cart";
+
+      addCart.addEventListener("click", function () {
+        localStorage.setItem("itemNo",JSON.stringify(elem.id));
+        localStorage.setItem("name",JSON.stringify("egg"));
+        window.location.href = "../ProductDetails/Product_Page2.html";
+      });
+
+      wgt.append(net_tag, net, n_gm, gross_tag, gross, g_gm);
+      pri.append(price_tag, currency, price, strikePrice, addCart);
+      // btndiv.append(addCart)
+
+      main.append(img, name, des, wgt, pri);
+      newCinata.append(main);
+    });
+  }
+</script>
+<script src="./component/newComp.js" type="module"></script>
+<script src="../Components/login.js" type="module"></script>
+<script src="./component/new2com.js" type="module"></script>

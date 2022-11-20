@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mutton</title>
+    <script
+      src="https://kit.fontawesome.com/afc5c86662.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./common.css" />
+    <link rel="stylesheet" href="../Components/Common.css" />
+    <link rel="stylesheet" href="../NavbarFooter/Styles/footer.css" />
+    <link rel="shortcut icon" href="https://www.licious.in/favicon_old.ico" />
+  </head>
+  <body>
+    <div id="navbar"></div>
+    <div id="only-for-space"></div>
+    <div class="refermain">
+      <p id="refhome"><a href="../index.html" class="atultoday">Home&nbsp;&nbsp;&nbsp;</a></p>
+      <p><i class="fa-solid fa-caret-right"></i></p>
+      <p id="chickenHead">&nbsp;&nbsp;&nbsp;<span style="color: #D11243;">Mutton</span></p>
+    </div>
+    <!-- <div class="bar1"><hr /></div> -->
+    <div class="head">
+      <h2>Mutton &nbsp;&nbsp;<i class="fa-solid fa-caret-right"></i></h2>
+    </div>  
+    <div id="potContainer">
+    <div class="images">
+      <p>
+        <img src="https://d2407na1z3fc0t.cloudfront.net/USP/usp_58e78c6b83b3c" alt="">
+        <div id="nameimage"><span>Prime-grade Meats &nbsp;</span></div>
+      </p>
+    </div>
+    <div class="images1">
+      <p>
+        <img src="https://d2407na1z3fc0t.cloudfront.net/USP/usp_58e78c97c079f" alt="">
+        <div id="nameimage1"><span> &nbsp; &nbsp; Sourcing &nbsp;</span></div>
+      </p>
+    </div>
+  </div> 
+    <div class="bar"><hr /></div><br>
+     <div id="filter"></div>
+  <!-- </div> -->
+      <div id="seperationpart"></div>
+      <div class="ba"><hr class="bar2" /></div><br>
+    <div id="container"></div>
+    <div id="footer"></div>
+    
+  </body>
+</html>
+<script>
+  let getData = async () => {
+    let res = await fetch(
+      "https://safe-eyrie-39519.herokuapp.com/licious/mutton"
+    );
+    let data = await res.json();
+    _mutton(data);
+    console.log(data);
+  };
+  getData();
+  let sortLTH = async () => {
+  let res = await fetch(
+    "https://safe-eyrie-39519.herokuapp.com/licious/chicken?_sort=price&_order=asc"
+  );
+  let data = await res.json();
+    // console.log(data);
+  // append(data);
+  _mutton(data)
+};
+let sortHTL = async () => {
+  let res = await fetch(
+    "https://safe-eyrie-39519.herokuapp.com/licious/chicken?_sort=price&_order=desc"
+  );
+  let data = await res.json();
+  // console.log(data);
+  // append(data);
+  _mutton(data)
+};
+// 
+let sortNAME = async () => {
+  let res = await fetch(
+    `https://safe-eyrie-39519.herokuapp.com/licious/chicken/?_sort=name&_order=asc`
+  );
+  let data = await res.json();
+  _mutton(data)
+  // console.log(res);
+  // _mutton(data)
+  
+};
+
+let CartData = JSON.parse(localStorage.getItem('cardArr'))|| [];
+
+  function _mutton(muttondata) {
+    let asdqwww = document.querySelector("#container")
+    asdqwww.innerHTML = null;
+    muttondata.forEach(elem => {
+      let main = document.createElement("div");
+      main.setAttribute("class", "main");
+      let img = document.createElement("img");
+      img.setAttribute("src", elem.imgUrl[0]);
+      img.setAttribute("class", "image");
+      let name = document.createElement("h4");
+      name.innerText = elem.name;
+      let des = document.createElement("p");
+      des.setAttribute("class", "des");
+      des.innerText = elem.des;
+      let wgt = document.createElement("div");
+      wgt.setAttribute("class", "wgt");
+      let net_tag = document.createElement("h6");
+      net_tag.innerText = elem.net_tag;
+      let net = document.createElement("h6");
+      net.innerText = elem.net;
+      let n_gm = document.createElement("h6");
+      n_gm.innerText = elem.unit;
+      let gross_tag = document.createElement("h6");
+      gross_tag.innerText = elem.gross_tag;
+      let gross = document.createElement("h6");
+      gross.innerText = elem.gross;
+      let g_gm = document.createElement("h6");
+      g_gm.innerText = elem.unit;
+      let hold = document.createElement("div");
+      hold.setAttribute("class", "hold");
+      let pri = document.createElement("div");
+      pri.setAttribute("class", "pri");
+      let price_tag = document.createElement("h5");
+      price_tag.innerText = elem.price_tag;
+      let cuurency = document.createElement("h5");
+      cuurency.innerText = elem.cuurency;
+      let price = document.createElement("h5");
+      price.innerText = elem.price;
+      let strikePrice = document.createElement("strike");
+      strikePrice.innerText = "₹" + elem.strikedPrice;
+      let btndiv = document.createElement("div");
+      btndiv.setAttribute("class", "btndiv");
+      // let idNumber = document.createElement("h2");
+      // idNumber.innerText =elem.id;
+      console.log(elem.id);
+      let addCart = document.createElement("button");
+      addCart.setAttribute("class", "addcartbtn");
+      addCart.innerHTML = "ADD TO CART";
+      addCart.addEventListener("click", function () {
+        // AddToCart(elem);
+        // JSON.parse(localStorage.getItem("name"))
+        localStorage.setItem("name",JSON.stringify("mutton"));
+        localStorage.setItem("itemNo",JSON.stringify((elem.id)));
+        window.location.href = "../ProductDetails/Product_Page2.html";
+        // localStorage.setItem("itemNo",JSON.stringify(elem.id));
+        // localStorage.setItem("name",JSON.stringify("mutton"));
+        // window.location.href = "../ProductDetails/Product_Page2.html";
+       
+      });
+
+      wgt.append(net_tag, net, n_gm, gross_tag, gross, g_gm);
+      pri.append(price_tag, cuurency, price, strikePrice, addCart);
+      // btndiv.append(addCart)
+
+      main.append(img, name, des, wgt, pri);
+      asdqwww.append(main);
+      
+    });
+    
+  }
+
+  let AddToCart = (elem) =>{
+    CartData.push(elem);
+        localStorage.setItem("cardArr", JSON.stringify(CartData));
+}
+
+</script>
+<script src="./component/newComp.js" type="module"></script>
+<script src="../Components/login.js" type="module"></script>
+<script src="./component/new2com.js" type="module"></script>

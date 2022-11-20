@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.0/magnific-popup.min.css"
+      rel="stylesheet"
+    />
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.0/jquery.magnific-popup.min.js"></script>
+    <link rel="stylesheet" href="./styles/index.css" />
+    <link rel="stylesheet" href="../Components/Common.css" />
+    <link rel="stylesheet" href="../NavbarFooter/Styles/footer.css" />
+    <link rel="shortcut icon" href="https://www.licious.in/favicon_old.ico" />
+    <link rel="stylesheet" href="./styles/newStyel.css">
+  </head>
+  <body>
+    <div id="navbar"></div>
+    <div class="refermain">
+      <p id="refhome"><a href="../index.html" class="atultoday">Home&nbsp;&nbsp;&nbsp;</a></p>
+      <p><i class="fa-solid fa-caret-right"></i></p>
+      <p id="chickenHead">&nbsp;&nbsp;&nbsp;<span id="chickenHead2" style="color: #D11243;"></span></p>
+    </div>
+    <div id="ProductMainPage">
+      <div id="div1_ptodct"></div>
+      <div id="slideShow">
+        <div id="slideshowcontant"></div>
+        <br />
+      </div>
+      <div id="div2_line">
+        <h3 id="div2_name">
+          ` The &nbsp; <span id="div2_clor">Licious</span>&nbsp; Way
+        </h3>
+      </div>
+      <div id="Licious"></div>
+      <div><h2 id="div2_slidename">You may also like</h2></div>
+      <div id="slideNews">
+        <button id="prev_home">
+          <i class="fa-solid fa-circle-chevron-left"></i>
+        </button>
+        <button id="next_home">
+          <i class="fa-solid fa-circle-chevron-right"></i>
+        </button>
+      </div>
+      <div id="div4_heading">
+        <img
+          src="	https://d2407na1z3fc0t.cloudfront.net/Banner/Rebranding_homepage_madewithLicious.png"
+          alt="logo"
+        />
+        <h3>#MadeWithLicious</h3>
+        <p>
+          Cooking with Licious meats is more fun now! Post a picture of your
+          Licious dish on our Instagram page, tag us and use #MadeWithLicious
+          for a chance to be featured on our Instagram page! Happy Cooking!
+        </p>
+        <a href=""
+          >Check it out &nbsp; <i class="fa-solid fa-angle-right"></i
+        ></a>
+      </div>
+      <div id="slideNews1"></div>
+      <div id="newbuttonsjdn"></div>
+      <img
+        id="stickyLogoEntirePage"
+        src="	https://www.licious.in/img/rebranding/banner/side.png"
+        alt=""
+      />
+      <div id="FloatCart_pageSecond"></div>
+      <div id="footer"></div>
+      <div id="div1_video1">
+        <p class="text-center mt-5">
+          <i class="fa-solid fa-circle-play"></i>
+          <a href="#headerPopup" id="headerVideoLink" target="_blank"
+            >See Why Solodev WXP</a
+          >
+        </p>
+        <div
+          id="headerPopup"
+          class="mfp-hide embed-responsive embed-responsive-21by9"
+        >
+        <iframe
+        class="embed-responsive-item"
+          id="ytplayer"
+          type="text/html"
+          width="854"
+          height="480"
+          src="https://www.youtube.com/embed/36z2oRdFEzs"?autoplay=1&origin=http://example.com"
+          frameborder="0"
+        ></iframe>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<!-- <script src="./scripts/products_page.js"></script> -->
+<script
+  src="https://kit.fontawesome.com/01d90ed8c9.js"
+  crossorigin="anonymous"
+></script>
+<script src="./scripts/productPage2.js"></script>
+<!-- <script src=".././Components/seachFun.js"></script> -->
+<script src="./components/satosh_com.js" type="module"></script>
+<script src="../Components/login.js" type="module"></script>
+<script>
+  var body = document.body;
+  var element = document.getElementById("FloatCart_pageSecond");
+  document.addEventListener("scroll", function () {
+    var scrollAmt = window.pageYOffset || document.documentElement.scrollTop;
+    if (window.innerHeight / 2 >= scrollAmt) element.style.display = "none";
+    else element.style.display = "block";
+  });
+  </script>

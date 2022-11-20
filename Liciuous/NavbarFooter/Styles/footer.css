@@ -1,0 +1,91 @@
+.big {
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  /* line-height: 50px; */
+}
+#rao1 {
+  width: 95%;
+  margin-left: 3%;
+  /* height: 1200px; */
+  /* border: 1px solid red; */
+}
+#middleCont h4 {
+  /* border: 2px solid red; */
+  line-height: 30px;
+  margin-top: 20px;
+  /* margin-bottom: 10px; */
+}
+#lastpara {
+  margin-top: 20px;
+  line-height: 26px;
+  margin-bottom: 30px;
+}
+.headi1 {
+  margin-top: 20px;
+  font-weight: bold;
+}
+#rao1 > img {
+  width: 120px;
+  height: 46px;
+  padding-left: 6px;
+  /* border: 1px solid black; */
+}
+#rao2 {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  line-height: 30px;
+  justify-content: space-between;
+
+  /* border: 1px solid red; */
+}
+#rao3 > img {
+  width: 120px;
+  padding-top: 12px;
+  margin-top: -15%;
+}
+#rao4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  gap: 20px;
+}
+#rao5 > p {
+  display: flex;
+  word-spacing: 1rem;
+  line-height: 32px;
+  letter-spacing: 1px;
+}
+#rao8 {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+#rao8 > b {
+  margin-top: 20px;
+}
+#rao9 {
+  left: 10%;
+  margin-right: -5px;
+}
+#rao10 {
+  left: 10%;
+  margin-right: -90px;
+}
+#rao11 {
+  margin-right: -50px;
+}
+#rao12 {
+  margin-right: -125px;
+  margin-top: -2%;
+}
+#rao9 > h4 {
+  font-size: 15.48px;
+  padding: 5px;
+}
+.expe {
+  cursor: pointer;
+}
